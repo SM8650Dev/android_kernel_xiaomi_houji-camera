@@ -225,7 +225,7 @@ static ssize_t i2c_write(struct file *t_file, const char __user *t_char,
 			rc = camera_io_dev_write(io_master, &read_write);
 			if (rc) {
 				snprintf(line_buffer, LINE_BUFFER_SIZE,
-					"Error: 0x%X, 0x%X, rc: %d\n",
+					"Error: 0x%X, 0x%X, rc: %zd\n",
 					read_write.reg_setting->reg_addr,
 					read_write.reg_setting->reg_data, rc);
 				strlcat(out_buffer, line_buffer, RW_BUFFER_SIZE);
@@ -239,7 +239,7 @@ static ssize_t i2c_write(struct file *t_file, const char __user *t_char,
 				snprintf(line_buffer, LINE_BUFFER_SIZE, "Read data: 0x%X\n",
 					read_write.reg_setting->reg_data);
 			else
-				snprintf(line_buffer, LINE_BUFFER_SIZE, "Error, rc: %d\n", rc);
+				snprintf(line_buffer, LINE_BUFFER_SIZE, "Error, rc: %zd\n", rc);
 			strlcat(out_buffer, line_buffer, RW_BUFFER_SIZE);
 		}
 	} else {

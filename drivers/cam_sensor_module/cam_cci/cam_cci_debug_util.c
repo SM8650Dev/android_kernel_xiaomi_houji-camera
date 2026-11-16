@@ -298,7 +298,7 @@ static ssize_t cam_cci_debug_monitor_read(struct file *file,
 	CAM_CONVERT_TIMESTAMP_FORMAT(timestamp, hrs, min, sec, ms);
 
 	hrs = hrs + TIME_SHIFT_HOURS % TIME_MAX_HOURS;
-	snprintf(buf + buf_pos, count - buf_pos, "--- %.*lu:%.*lu:%.*lu.%.*lu\n",
+	snprintf(buf + buf_pos, count - buf_pos, "--- %.*llu:%.*llu:%.*llu.%.*llu\n",
 		PRINT_SINGLE_TIME, hrs, PRINT_SINGLE_TIME, min, PRINT_SINGLE_TIME,
 		sec, PRINT_SINGLE_TIME, ms);
 	buf_pos += PRINT_TIMESTAMP;

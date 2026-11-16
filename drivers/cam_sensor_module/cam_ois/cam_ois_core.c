@@ -2950,7 +2950,7 @@ static int cam_ois_fw_get(char *buffer,
 
 	for (i=0; (ois_firmware[i].is_valid == true && i < MAX_OIS_DEV); i++)
 	{
-		ret += scnprintf(buffer+ret, buff_max_size, "%s : 0x%x\n",
+		ret += scnprintf(buffer+ret, buff_max_size, "%s : 0x%llx\n",
 					ois_firmware[i].name,
 					ois_firmware[i].fw_version);
 	}
