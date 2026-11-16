@@ -2948,9 +2948,9 @@ static int cam_ois_fw_get(char *buffer,
 	uint16_t buff_max_size = CAM_OIS_FW_VERSION_MAX_LENGTH;
 	uint16_t ret = 0, i;
 
-	for (i=0; (ois_firmware[i].is_valid == true && i < MAX_OIS_DEV); i++)
+	for (i = 0; i < MAX_OIS_DEV && ois_firmware[i].is_valid; i++)
 	{
-		ret += scnprintf(buffer+ret, buff_max_size, "%s : 0x%llx\n",
+		ret += scnprintf(buffer + ret, buff_max_size - ret, "%s : 0x%llx\n",
 					ois_firmware[i].name,
 					ois_firmware[i].fw_version);
 	}
