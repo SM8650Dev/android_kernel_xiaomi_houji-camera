@@ -66,6 +66,13 @@
 #include "cam_generated_h"
 #endif
 
+/* Xiaomi Pineapple HAL uses the extended 32-byte control/acquire ABI. */
+static_assert(sizeof(struct cam_control) == 32);
+static_assert(VIDIOC_CAM_CONTROL == 0xc02056c0);
+static_assert(offsetof(struct cam_acquire_dev_cmd, resource_hdl) == 24);
+static_assert(offsetof(struct cam_acquire_hw_cmd_v1, resource_hdl) == 32);
+static_assert(offsetof(struct cam_acquire_hw_cmd_v2, resource_hdl) == 32);
+
 char camera_banner[] = "Camera-Banner: (" CAMERA_COMPILE_BY "@"
 	CAMERA_COMPILE_HOST ") (" CAMERA_COMPILE_TIME ")";
 
